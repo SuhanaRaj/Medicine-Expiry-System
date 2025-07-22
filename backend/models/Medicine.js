@@ -9,4 +9,7 @@ const MedicineSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Medicine', MedicineSchema);
+module.exports = mongoose.model('Medicine', MedicineSchema, 'medicineExpiry');
+
+
+
