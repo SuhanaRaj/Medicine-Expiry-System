@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base theme with green color -->
+    <style name="Base.Theme.MedicineExpiryLoginPage2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#1A5D1A</item>         <!-- Button color -->
+        <item name="colorOnPrimary">#FFFFFF</item>       <!-- Button text color -->
+        <item name="colorPrimaryContainer">#1A5D1A</item>
+    </style>
+
+    <!-- Actual theme used in your app -->
+    <style name="Theme.MedicineExpiryLoginPage2" parent="Base.Theme.MedicineExpiryLoginPage2" />
+</resources>
