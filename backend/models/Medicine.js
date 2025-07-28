@@ -6,7 +6,8 @@ const MedicineSchema = new mongoose.Schema({
   expiryDate: Date,
   quantity: Number,
   returned: { type: Boolean, default: false },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  discounted: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Medicine', MedicineSchema, 'medicineExpiry');

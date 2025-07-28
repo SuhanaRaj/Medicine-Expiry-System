@@ -1,3 +1,26 @@
+// exports.updateStatus = async (req, res) => {
+//   console.log('updateStatus called with:', req.body);  // DEBUG LOG
+
+//   const { batchNo, status } = req.body;
+//   try {
+//     const update = {};
+//     if (status === 'returned') update.returned = true;
+//     else if (status === 'discounted') update.discounted = true;
+//     else return res.status(400).json({ msg: 'Invalid status value' });
+
+//     const updated = await Medicine.findOneAndUpdate({ batchNo }, update, { new: true });
+
+//     if (!updated) return res.status(404).json({ msg: 'Batch not found' });
+
+//     res.json({ msg: `Batch marked as ${status}` });
+//   } catch (err) {
+//     console.error('Error in updateStatus:', err);
+//     res.status(500).json({ error: err.message });
+//   }
+// };
+
+
+
 const Medicine = require('../models/Medicine');
 
 // Create a new medicine entry
@@ -78,3 +101,22 @@ exports.getStats = async (req, res) => {
     res.status(500).json({ success: false, error: err.message });
   }
 };
+
+
+exports.updateStatus = async (req, res) => {
+  const { batchNo, status } = req.body;
+  try {
+    const update = {};
+    if (status === 'returned') update.returned = true;
+    else if (status === 'discounted') update.discounted = true;
+
+    const updated = await Medicine.findOneAndUpdate({ batchNo }, update, { new: true });
+
+    if (!updated) return res.status(404).json({ msg: 'Batch not found' });
+
+    res.json({ msg: `Batch marked as ${status}` });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
